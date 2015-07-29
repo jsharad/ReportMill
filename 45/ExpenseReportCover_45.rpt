@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document version="10" unit="inch" show-margin="true" margin="28.800001 36 28.800001 36" show-grid="true" grid="7.2" null-string="&lt;NA&gt;">
+  <datasource name="root" source="C:\Users\Alan Rich\Documents\Akiba\Dev\Reporting\ReportWithFrenchVat102609.xml" />
+  <page width="612" height="792">
+    <table-group x="57.599" y="210.5" width="496.8" height="428.5" asize="-~-,-~-">
+      <table width="496.8" height="428.5" asize="-~-,-~-" list-key="getExpenseReportLineItems">
+        <grouping key="getExpenseReportLineItems" header="true" />
+        <tablerow width="496.8" height="46.328" asize="---,--~" asize-height="true" structured="false" title="getExpenseReportLineItems Header">
+          <shape width="495.759" height="32.397" asize-height="true">
+            <text width="130" height="18" asize="~~~,~~~" asize-height="true" coalesce-newlines="true">
+              <font name="Arial Bold" size="12" />
+              <string>Financial Summary</string>
+            </text>
+            <shape x="0.4" y="18" width="495.36" height="14.4" asize="~~~,~~~">
+              <text width="403.2" height="14.4" asize="~~~,~~~" valign="middle">
+                <fill color="#365f91cd" />
+                <font name="Arial Bold" size="10" />
+                <color value="#ffffff" />
+                <pgraph align="right" />
+                <path-shape>
+                  <rect x="90" y="170.999" width="296.999" height="18" causes-wrap-type="1">
+                    <stroke />
+                  </rect>
+                </path-shape>
+              </text>
+              <text x="403.199" width="92.159" height="14.4" asize="~~~,~~~" asize-height="true" valign="middle">
+                <fill color="#365f91cd" />
+                <font name="Arial Bold" size="10" />
+                <color value="#ffffff" />
+                <pgraph align="right" />
+                <string>Amount (@getExpenseReportHeader.getPayMeInCurrencyCode@)</string>
+                <path-shape>
+                  <rect x="90" y="170.999" width="296.999" height="18" causes-wrap-type="1">
+                    <stroke />
+                  </rect>
+                </path-shape>
+              </text>
+            </shape>
+          </shape>
+          <shape y="32.328" width="495.865" height="14.4">
+            <text width="165.6" height="14.4" asize="~~~,~~~" asize-height="true" valign="middle">
+              <fill color="#b8cce4" />
+              <font name="Arial" size="10" />
+              <string>Total Expenses Reported</string>
+            </text>
+            <text x="165.599" width="330.266" height="14.4" asize="~~~,~~~" valign="middle">
+              <fill color="#b8cce4" />
+              <font name="Arial" size="10" />
+              <format type="number" pattern="#,##0.00" null-string="&lt;N/A&gt;" />
+              <pgraph align="right" />
+              <string>@total.getAmountSpentPersonal.doubleValue+total.getAmountSpentConverted.doubleValue@@offSetTotal=0@</string>
+            </text>
+          </shape>
+        </tablerow>
+      </table>
+      <table width="496.8" height="508.5" asize="-~-,-~-" list-key="getExpenseReportLineItems" filter-key="isFirmPaid">
+        <grouping key="getExpenseReportLineItems" summary="true" />
+        <tablerow width="496.8" height="14.4" asize="---,--~" structured="false" title="getExpenseReportLineItems Summary">
+          <shape x="0.499" width="496.799" height="14.4">
+            <text x="165.6" width="331.199" height="13" asize="~~~,~~~" asize-height="true" valign="middle">
+              <font name="Arial" size="10" />
+              <format type="number" pattern="#,##0.00" null-string="&lt;N/A&gt;" />
+              <pgraph align="right" />
+              <string>@total.getAmountSpentConverted.doubleValue@@offSetTotal+=total.getAmountSpentConverted.doubleValue@</string>
+            </text>
+            <text width="164.666" height="14.4" asize="~~~,~~~" asize-height="true" valign="middle">
+              <font name="Arial" size="10" />
+              <string>    Less Company Paid Expenses</string>
+            </text>
+          </shape>
+        </tablerow>
+      </table>
+      <table width="496.8" height="508.5" asize="-~-,-~-" list-key="getExpenseReportLineItems" filter-key="isFirmPaid&amp;&amp;isPersonal">
+        <grouping key="getExpenseReportLineItems" summary="true" />
+        <tablerow width="496.8" height="14.4" asize="---,--~" structured="false" title="getExpenseReportLineItems Summary">
+          <shape x="0.499" width="496.799" height="14.4">
+            <text x="165.6" width="331.199" height="13" asize="~~~,~~~" asize-height="true" valign="middle">
+              <font name="Arial" size="10" />
+              <format type="number" pattern="#,##0.00" null-string="&lt;N/A&gt;" />
+              <pgraph align="right" />
+              <string>@total.getAmountSpentConverted.doubleValue@@offSetTotal+=total.getAmountSpentConverted.doubleValue@</string>
+            </text>
+            <text width="260.665" height="14.4" asize="~~~,~~~" asize-height="true" valign="middle">
+              <font name="Arial" size="10" />
+              <string>    Less Company Paid Personal Expenses</string>
+            </text>
+          </shape>
+        </tablerow>
+      </table>
+      <table width="496.8" height="508.5" asize="-~-,-~-" list-key="getExpenseReportLineItems" filter-key="isPersonal&amp;&amp;!isFirmPaid">
+        <grouping key="getExpenseReportLineItems" header="true" />
+        <tablerow width="496.8" height="14.4" asize="---,--~" asize-height="true" structured="false" print-always="false" title="getExpenseReportLineItems Header">
+          <text x="166.099" width="331.199" height="13" asize-height="true" valign="middle">
+            <font name="Arial" size="10" />
+            <format type="number" pattern="#,##0.00" null-string="&lt;N/A&gt;" />
+            <pgraph align="right" />
+            <string>@total.getAmountSpentPersonal.doubleValue@@offSetTotal+=total.getAmountSpentPersonal.doubleValue@</string>
+          </text>
+          <text x="0.499" width="164.666" height="14.4" asize-height="true" valign="middle">
+            <font name="Arial" size="10" />
+            <string>    Less Personal Expenses</string>
+          </text>
+        </tablerow>
+      </table>
+      <table width="496.8" height="508.5" asize="-~-,-~-" list-key="getExpenseReportLineItems">
+        <grouping key="getExpenseReportLineItems" header="true" />
+        <tablerow width="496.8" height="16" asize="---,--~" asize-height="true" structured="false" title="getExpenseReportLineItems Header">
+          <shape y="1.399" width="495.864" height="14.4">
+            <text x="164.665" width="331.199" height="14.4" asize="~~~,~~~" asize-height="true" valign="middle">
+              <fill color="#b8cce4" />
+              <font name="Arial" size="10" />
+              <format type="number" pattern="#,##0.00" null-string="&lt;N/A&gt;" />
+              <pgraph align="right" />
+              <string>@total.getAmountSpentPersonal.doubleValue+total.getAmountSpentConverted.doubleValue-offSetTotal@</string>
+            </text>
+            <text width="164.666" height="14.4" asize="~~~,~~~" asize-height="true" valign="middle">
+              <fill color="#b8cce4" />
+              <font name="Arial" size="10" />
+              <string>Amount Due Employee</string>
+            </text>
+          </shape>
+        </tablerow>
+      </table>
+      <table width="496.8" height="508.5" asize="-~-,-~-" list-key="getExpenseReportLineItems">
+        <grouping key="getExpenseItemTypeName" header="true" details="true" summary="true">
+          <sort key="getExpenseItemTypeName" />
+        </grouping>
+        <grouping key="getExpenseReportLineItems" />
+        <tablerow width="496.8" height="44.4" asize="---,--~" structured="false" title="getExpenseItemTypeName Header">
+          <text x="165.6" y="28.8" width="230.4" height="13.9" asize-height="true" valign="middle">
+            <fill color="#365f91cd" />
+            <font name="Arial Bold" size="10" />
+            <color value="#ffffff" />
+            <path-shape>
+              <rect x="90" y="170.999" width="296.999" height="18" causes-wrap-type="1">
+                <stroke />
+              </rect>
+            </path-shape>
+          </text>
+          <text x="0.5" y="28.8" width="165.1" height="13.9" asize-height="true" valign="middle">
+            <fill color="#365f91cd" />
+            <font name="Arial Bold" size="10" />
+            <color value="#ffffff" />
+            <string>Expense Type</string>
+            <path-shape>
+              <rect x="90" y="170.999" width="296.999" height="18" causes-wrap-type="1">
+                <stroke />
+              </rect>
+            </path-shape>
+          </text>
+          <text x="395.999" y="28.8" width="100.8" height="13.9" asize-height="true" valign="middle">
+            <fill color="#365f91cd" />
+            <font name="Arial Bold" size="10" />
+            <color value="#ffffff" />
+            <pgraph align="right" />
+            <string> Amount (@getCurrencyCodeSpentConverted@)</string>
+            <path-shape>
+              <rect x="90" y="170.999" width="296.999" height="18" causes-wrap-type="1">
+                <stroke />
+              </rect>
+            </path-shape>
+          </text>
+          <text y="10.699" width="360" height="21.6" asize="~~~,~~~" asize-height="true">
+            <font name="Arial Bold" size="12" />
+            <string>Expense Summary</string>
+          </text>
+          <text x="244.249" y="28.8" width="151.749" height="15" asize-height="true">
+            <property-key name="IsVisible" key="getCurrencyCodeSpentConverted!=getCustomer.getCurrencyCode" />
+            <font name="Arial Bold" size="10" />
+            <color value="#ffffff" />
+            <pgraph align="right" />
+            <string>Amount (@getCustomer.getCurrencyCode@)</string>
+          </text>
+        </tablerow>
+        <tablerow y="60.4" width="496.8" height="14.4" asize="---,--~" structured="false" title="getExpenseItemTypeName Details">
+          <text x="399616.5" width="427408.1" height="9.215" asize="~~~,~~~" asize-height="true" valign="middle">
+            <property-key name="IsVisible" key="getCurrencyCodeSpentConverted!=getCustomer.getCurrencyCode" />
+            <font name="Arial" size="10" />
+            <format type="number" pattern="#,##0.00" null-string="&lt;N/A&gt;" />
+            <pgraph align="right" />
+            <string>@total.getAmountSpentConverted.doubleValue@</string>
+          </text>
+          <text x="827027.1" width="393440.06" height="9.215" asize="~~~,~~~" asize-height="true">
+            <font name="Arial" size="10" />
+            <format type="number" pattern="#,##0.00" null-string="&lt;N/A&gt;" />
+            <pgraph align="right" />
+            <string>@total.getAmountCustomer.doubleValue@</string>
+          </text>
+          <shape width="497.299" height="14.4">
+            <text width="288.499" height="14.4" asize="~~~,~~~" asize-height="true" valign="middle">
+              <font name="Arial" size="10" />
+              <string>@getExpenseItemTypeName@</string>
+            </text>
+            <text x="288.499" width="108" height="14.4" asize="~~~,~~~" asize-height="true">
+              <property-key name="IsVisible" key="getCurrencyCodeSpentConverted!=getCustomer.getCurrencyCode" />
+              <font name="Arial" size="10" />
+              <format type="number" pattern="#,##0.00" null-string="&lt;N/A&gt;" />
+              <pgraph align="right" />
+              <string>@total.getAmountCustomer.doubleValue@</string>
+            </text>
+            <text x="396.5" width="100.799" height="14.4" asize="~~~,~~~" asize-height="true" valign="middle">
+              <font name="Arial" size="10" />
+              <format type="number" pattern="#,##0.00" null-string="&lt;N/A&gt;" />
+              <pgraph align="right" />
+              <string>@total.getAmountSpentPersonal.doubleValue+total.getAmountSpentConverted.doubleValue@</string>
+            </text>
+          </shape>
+          <alternates>
+            <tablerow width="496.8" height="14.4" asize="---,--~" asize-height="true" structured="false" alt-key="Alternate">
+              <shape width="497.297" height="14.4" asize-height="true">
+                <rect x="288" width="108.5" height="14.4" asize="~~~,~~~" causes-wrap-type="1">
+                  <fill color="#e0e0e0cb" />
+                </rect>
+                <text width="287.999" height="14.4" asize="~~~,~~~" valign="middle">
+                  <fill color="#e0e0e0cb" />
+                  <font name="Arial" size="10" />
+                  <string>@getExpenseItemTypeName@</string>
+                </text>
+                <text x="302.4" width="93.599" height="14.4" asize="~~~,~~~">
+                  <property-key name="IsVisible" key="getCurrencyCodeSpentConverted!=getCustomer.getCurrencyCode" />
+                  <font name="Arial" size="10" />
+                  <format type="number" pattern="#,##0.00" null-string="&lt;N/A&gt;" />
+                  <pgraph align="right" />
+                  <string>@total.getAmountCustomer.doubleValue@</string>
+                </text>
+                <text x="396.5" width="100.797" height="14.4" asize="~~~,~~~" valign="middle">
+                  <fill color="#e0e0e0cb" />
+                  <font name="Arial" size="10" />
+                  <format type="number" pattern="#,##0.00" null-string="&lt;N/A&gt;" />
+                  <pgraph align="right" />
+                  <string>@total.getAmountSpentPersonal.doubleValue+total.getAmountSpentConverted.doubleValue@</string>
+                </text>
+              </shape>
+            </tablerow>
+          </alternates>
+        </tablerow>
+        <tablerow y="90.8" width="496.8" height="14.4" asize="---,--~" title="getExpenseItemTypeName Summary">
+          <fill color="#b8cce4" />
+          <text width="194.704" height="14.4" asize-height="true" valign="middle">
+            <font name="Arial Bold" size="10" />
+            <string>Total</string>
+          </text>
+          <text x="194.704" width="201.397" height="14.4" asize="~~~,~~~" asize-height="true" valign="middle">
+            <property-key name="IsVisible" key="getCurrencyCodeSpentConverted!=getCustomer.getCurrencyCode" />
+            <font name="Arial" size="10" />
+            <format type="number" pattern="#,##0.00" null-string="&lt;N/A&gt;" />
+            <pgraph align="right" />
+            <string>@total.getAmountCustomer.doubleValue@</string>
+          </text>
+          <text x="396.101" width="100.698" height="14.4" asize-height="true" valign="middle">
+            <font name="Arial" size="10" />
+            <format type="number" pattern="#,##0.00" null-string="&lt;N/A&gt;" />
+            <pgraph align="right" />
+            <string>@total.getAmountSpentPersonal.doubleValue+total.getAmountSpentConverted.doubleValue@</string>
+          </text>
+        </tablerow>
+      </table>
+      <table width="496.8" height="508.5" asize="-~-,-~-" list-key="getMatters">
+        <grouping key="getMatterKey" header="true" details="true" summary="true">
+          <sort key="getMatterKey" />
+        </grouping>
+        <grouping key="getMatters">
+          <sort key="getExpenseReportLineItems.getMatters" />
+        </grouping>
+        <tablerow width="496.8" height="43" asize="---,--~" asize-height="true" structured="false" title="getMatterKey Header">
+          <shape y="11.7" width="496.65" height="32.029">
+            <text width="130.989" height="21.6" asize="~~~,~~~" asize-height="true">
+              <font name="Arial Bold" size="12" />
+              <string>Allocation Summary</string>
+            </text>
+            <text x="174.114" y="17.63" width="322.535" height="14.4" asize="~~~,~~~" valign="middle">
+              <fill color="#365f91cd" />
+              <font name="Arial Bold" size="10" />
+              <color value="#ffffff" />
+              <pgraph align="right" />
+              <string>Amount (@getExpenseReportHeader.getPayMeInCurrencyCode@)</string>
+              <path-shape>
+                <rect x="90" y="170.999" width="296.999" height="18" causes-wrap-type="1">
+                  <stroke />
+                </rect>
+              </path-shape>
+            </text>
+            <text y="17.63" width="174.114" height="14.4" asize="~~~,~~~" valign="middle">
+              <fill color="#365f91cd" />
+              <font name="Arial Bold" size="10" />
+              <color value="#ffffff" />
+              <string>Matters Charged</string>
+              <path-shape>
+                <rect x="90" y="170.999" width="296.999" height="18" causes-wrap-type="1">
+                  <stroke />
+                </rect>
+              </path-shape>
+            </text>
+          </shape>
+        </tablerow>
+        <tablerow y="59" width="496.8" height="14.4" asize="---,-~~" asize-height="true" sync-alts="true" stay-with="0" reprint="false" print-always="false" title="getMatterKey Details">
+          <text width="108.352" height="14.4" asize="~~~,-~~" asize-height="true" valign="middle">
+            <font name="Arial" size="10" />
+            <string>@getNumber@</string>
+          </text>
+          <text x="108.352" width="158.58" height="14.4" asize="~~~,~~~" asize-height="true" valign="middle">
+            <font name="Arial" size="10" />
+            <format type="number" pattern="#0.00" null-string="&lt;N/A&gt;" />
+            <string>@getClientName@</string>
+          </text>
+          <text x="266.932" width="158.624" height="14.4" asize="~~~,~~~" asize-height="true" valign="middle">
+            <font name="Arial" size="10" />
+            <format type="number" pattern="#0.00" null-string="&lt;N/A&gt;" />
+            <string>@getDescription@</string>
+          </text>
+          <text x="425.556" width="71.243" height="14.4" asize="~~~,~~~" asize-height="true" valign="middle">
+            <font name="Arial" size="10" />
+            <format type="number" pattern="#,##0.00" null-string="&lt;N/A&gt;" />
+            <pgraph align="right" />
+            <string>@getAmountSpentConverted.doubleValue@</string>
+          </text>
+          <alternates>
+            <tablerow width="496.8" height="14.4" asize="---,--~" asize-height="true" alt-key="Alternate">
+              <text width="108.352" height="14.4" asize="~~~,~~~" asize-height="true" valign="middle">
+                <fill color="#e0e0e0cb" />
+                <font name="Arial" size="10" />
+                <string>@getNumber@</string>
+              </text>
+              <text x="108.352" width="158.58" height="14.4" asize="~~~,~~~" asize-height="true" valign="middle">
+                <fill color="#e0e0e0cb" />
+                <font name="Arial" size="10" />
+                <format type="number" pattern="#0.00" null-string="&lt;N/A&gt;" />
+                <string>@substring(getClientName,0,30)@</string>
+              </text>
+              <text x="266.932" width="158.624" height="14.4" asize="~~~,~~~" asize-height="true" valign="middle">
+                <fill color="#e0e0e0cb" />
+                <font name="Arial" size="10" />
+                <format type="number" pattern="#0.00" null-string="&lt;N/A&gt;" />
+                <string>@getDescription@</string>
+              </text>
+              <text x="425.556" width="71.243" height="14.4" asize="~~~,~~~" asize-height="true" valign="middle">
+                <fill color="#e0e0e0cb" />
+                <font name="Arial" size="10" />
+                <format type="number" pattern="#,##0.00" null-string="&lt;N/A&gt;" />
+                <pgraph align="right" />
+                <string>@getAmountSpentConverted.doubleValue@</string>
+              </text>
+            </tablerow>
+          </alternates>
+        </tablerow>
+        <tablerow y="89.4" width="496.8" height="14.4" asize="---,--~" title="getMatterKey Summary">
+          <fill color="#b8cce4" />
+          <text width="248.4" height="14.4" asize="~~~,~~~" asize-height="true" valign="middle">
+            <font name="Arial Bold" size="10" />
+            <string>Total</string>
+          </text>
+          <text x="248.4" width="248.4" height="14.4" asize="~~~,~~~" asize-height="true" valign="middle">
+            <font name="Arial" size="10" />
+            <format type="number" pattern="#,##0.00" null-string="&lt;N/A&gt;" />
+            <pgraph align="right" />
+            <string>@total.getAmountSpentConverted.doubleValue@</string>
+          </text>
+        </tablerow>
+      </table>
+    </table-group>
+    <text x="32.099" y="47.952" width="177" height="16.488" valign="middle">
+      <font name="Arial Black" size="12" />
+      <string>Expense Report</string>
+    </text>
+    <line x="28.8" y="70.2" width="547.2" height="0.1" causes-wrap-type="1">
+      <stroke />
+    </line>
+    <line x="28.8" y="157.799" width="547.2" height="0.1" causes-wrap-type="1">
+      <stroke />
+    </line>
+    <text x="128.8" y="129.2" width="202.2" height="13" valign="middle" draw-border="true">
+      <font name="Arial" size="10" />
+      <string>@getExpenseReportHeader.getSubmitDate.getJavaDate?getExpenseReportHeader.getSubmitDate.getJavaDate:Date@</string>
+    </text>
+    <text x="128.8" y="143.6" width="202.2" height="13" draw-border="true">
+      <font name="Arial" size="10" />
+      <string>@getExpenseReportHeader.getPayMeInCurrencyCode@      @getExpenseReportHeader.getDataReporting.getXmlUdfDataNVConverted.ExpenseReportType==&quot;10&quot;?&quot;-- </string>
+      <font name="Arial Italic" size="10" />
+      <string>Business Development --</string>
+      <font name="Arial" size="10" />
+      <string>&quot;:&quot;&quot;@</string>
+    </text>
+    <text x="28.799" y="72" width="99.201" height="84">
+      <fill color="#b8cce4" />
+      <font name="Arial Italic" size="10" />
+      <path-shape>
+        <rect x="45" y="72" width="144" height="135" causes-wrap-type="1" />
+      </path-shape>
+    </text>
+    <text x="35.998" y="129.2" width="93.002" height="13" draw-border="true">
+      <font name="Arial" size="10" />
+      <string>@getExpenseReportHeader.getSubmitDate.getJavaDate?&quot;Submit Date&quot;:&quot;Date&quot;@</string>
+    </text>
+    <text x="34.998" y="143.6" width="92.002" height="13" draw-border="true">
+      <font name="Arial" size="10" />
+      <string>To Be Paid In</string>
+    </text>
+    <text x="309.599" y="47.992" width="259.198" height="16.508" asize-height="true" valign="middle">
+      <font name="Arial Italic" size="12" />
+      <pgraph align="right" />
+      <string>Report ID:  @substring(getExpenseReportHeader.getReportID,0,4)@-@substring(getExpenseReportHeader.getReportID,4,8)@-@substring(getExpenseReportHeader.getReportID,8,12)@</string>
+    </text>
+    <text x="398.099" y="727.2" width="175.151" height="15" valign="middle">
+      <font name="Arial" size="10" />
+      <pgraph align="right" />
+      <string>Page @Page@ of @PageMax@</string>
+    </text>
+    <image-shape x="338.4" y="84.96" width="239.904" height="60" key="getBarCode">
+      <fill type="image" color="#00000000" resource="404769740" />
+    </image-shape>
+    <text x="128.8" y="86.7" width="203.199" height="13" draw-border="true">
+      <font name="Arial" size="10" />
+      <string>@getPersonExpense.getFirstName@ @getPersonExpense.getLastName@</string>
+    </text>
+    <text x="128.8" y="100.7" width="203.199" height="13" draw-border="true">
+      <font name="Arial" size="10" />
+      <string>@getPersonExpense.getUsername@</string>
+    </text>
+    <text x="35.998" y="86.7" width="92.002" height="13" draw-border="true">
+      <font name="Arial" size="10" />
+      <string>Expense Owner</string>
+    </text>
+    <text x="35.998" y="100.7" width="93.002" height="13" draw-border="true">
+      <font name="Arial" size="10" />
+      <string>Expense Owner ID</string>
+    </text>
+    <text x="128.798" y="73.368" width="446.201" height="13" asize-height="true" draw-border="true">
+      <font name="Arial" size="10" />
+      <string>@getExpenseReportHeader.getName@ </string>
+    </text>
+    <text x="35.998" y="73.368" width="92.002" height="13" draw-border="true">
+      <font name="Arial" size="10" />
+      <string>Report Name</string>
+    </text>
+    <line x="35.5" y="720" width="538" causes-wrap-type="1">
+      <stroke />
+    </line>
+    <text x="35.998" y="114.899" width="93.002" height="13" draw-border="true">
+      <font name="Arial" size="10" />
+      <string>Created By</string>
+    </text>
+    <text x="128.8" y="114.899" width="203.199" height="13" draw-border="true">
+      <font name="Arial" size="10" />
+      <string>@getPersonCreator.getFirstName@ @getPersonCreator.getLastName@</string>
+    </text>
+    <line x="29.5" y="201.499" width="547.2" height="0.1" causes-wrap-type="1">
+      <stroke />
+    </line>
+    <text x="29.75" y="159" width="547" height="41.5" valign="middle">
+      <fill color="#e0e0e0" />
+      <font name="Arial Bold" size="10" />
+      <pgraph align="center" />
+      <string>Place cover sheet in front of hard copy receipt pages and scan on Xerox-Docucentre to &quot;Expense Reimbursements&quot;.  If you do not have access to a Docucentre, email to  </string>
+      <font name="Arial" size="10" />
+      <string>@getEmail@ </string>
+      <font name="Arial Bold" size="10" />
+      <string>or&#10; fax to: </string>
+      <font name="Arial" size="10" />
+      <string>@&quot;(&quot;+substring(getFax,0,3)+&quot;) &quot;+substring(getFax,3,6)+&quot;-&quot;+substring(getFax,6,10)@</string>
+    </text>
+    <text x="36.299" y="727.2" width="252.95" height="15" valign="middle">
+      <font name="Arial" size="10" />
+      <string>Chrome River   |   www.chromeriver.com</string>
+    </text>
+    <line x="35.5" y="720" width="538" causes-wrap-type="1">
+      <stroke />
+    </line>
+    <line x="37.699" y="647.199" width="538" causes-wrap-type="1">
+      <stroke />
+    </line>
+    <image-shape x="468" y="653" width="114" height="63" key="getQRCode">
+      <fill type="image" color="#00000000" fillstyle="2" />
+    </image-shape>
+    <text x="44" y="643" width="435.5" height="75" valign="middle">
+      <font name="Arial" size="9" />
+      <string>This document may contain confidential and/or privileged information. If you are not the intended recipient, or the person responsible for delivering to the person addressed, please notify the sender immediately and destroy this material. Any unauthorized copying, disclosure or distribution of the material in this communication is strictly forbidden.</string>
+    </text>
+  </page>
+  <resource name="404769740">
+    <![CDATA[
+M,6r;%14!\!!!!.8Ou6I!!!#C!!!!]#R18/!%P3QlMpnbZq3YO<-[-ae%#p<0GF],=/n>,FPn>kbrGK/*.iE)g(H;8VPMgiapdd8XZ"(I@DFR)(bc@8"q4uY0FSd&$j24b_gl/(",6ioJ765I?l1SV@DFR)(bc@8"q1Tg0anm'$j24b_gl120STVGJ765I?l1R+(re7;(bc@8"q1Tg!Q,`Y$j24b_gl120OPa8J765I?l1R+(^:CY)#-*bPB>Qn)WrffmZDVIW,[>@%_6N]hZm5;a8c2?!(fUS7'8jaJc~>]]>
+  </resource>
+</document>
